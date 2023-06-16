@@ -1,0 +1,67 @@
+
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    // background-color: DodgerBlue;
+    width: 100%;
+
+  }
+
+.country-card {
+    width: 400px;
+    margin: 20px;
+    margin-left: 10px;
+    // background-color: rgb(255, 30, 30);
+    // border-radius: 10px;
+    flex-grow: inherit;
+    border-left: 5px solid #c2185b;
+  }
+
+  .country-name{
+    font-family: arial;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .country-deatils{
+    color: white;
+    font-size: 20px;
+    // font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    align-self: center;
+    // justify-content: space-around;
+  }
+
+  .country-link{
+    color: white;
+    font-size: 20px;
+    margin-left: 20px;
+  }
+
+  .country-header{
+    font-family: arial;
+    font-size: 30px;
+    text-align: left;
+    font-weight: bold;
+
+}
+
+.fi{
+    // width: 100px;
+    background-size: contain;
+    background-position: 50%;
+    background-repeat: no-repeat;  
+}
+
+// .flag-img {
+//     width: 200px;
+//     // background-size: contain;
+//     background-position: 50%;
+//     // background-repeat: no-repeat;  
+// }
+
+
