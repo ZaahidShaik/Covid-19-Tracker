@@ -1,14 +1,15 @@
 <p>
   <mat-toolbar color="primary">
 
-    <span class="app-name">Covid 19</span>
+    <span class="app-name" routerLink="/app-homepage">Covid 19</span>
+    <!-- <a class="app-name" routerLink="/" >Covid 19</a> -->
     <span class="example-spacer"></span>
 
-    <button mat-icon-button color="white" aria-label="Example icon-button with heart icon">
+    <!-- <button mat-icon-button color="white" aria-label="Example icon-button with heart icon">
       <mat-icon>turned_in_not</mat-icon>
-    </button>
+    </button> -->
     &nbsp;&nbsp;
-    <button mat-icon-button color="white" aria-label="Example icon-button with share icon">
+    <button mat-icon-button color="white" routerLink="/user-login">
       <mat-icon> person_pin</mat-icon>
     </button>
   </mat-toolbar>
@@ -16,14 +17,6 @@
 
 
 
-<div class="grid-container">
-  <div class="grid-item"></div>
-  <div class="grid-item">
-
-    <app-info-card></app-info-card>
-
-</div>
-
-</div>
+<router-outlet></router-outlet>
 
 

@@ -12,9 +12,15 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatListModule} from '@angular/material/list';
 
 import { InfoCardComponent } from './info-card/info-card.component';
 import { BookmarkBtnComponent } from './bookmark-btn/bookmark-btn.component';
+import { UserloginComponent } from './userlogin/userlogin.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SideMenuComponent } from './side-menu/side-menu.component';
 
 
 @NgModule({
@@ -22,7 +28,10 @@ import { BookmarkBtnComponent } from './bookmark-btn/bookmark-btn.component';
     AppComponent,
     HomepageComponent,
     InfoCardComponent,
-    BookmarkBtnComponent
+    BookmarkBtnComponent,
+    UserloginComponent,
+    PageNotFoundComponent,
+    SideMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +43,9 @@ import { BookmarkBtnComponent } from './bookmark-btn/bookmark-btn.component';
     MatButtonModule,
     MatDividerModule,
     MatChipsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

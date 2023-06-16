@@ -4,6 +4,7 @@ import { CountryDeatils } from './countrystats';
 const ProductList: Array<CountryDeatils> = [
   {
    id: 1,
+   iso: 'us',
    name: 'country1',
    infected: 'country 1 Impact Stats',
    recovered: 'country 1 Impact Stats',
@@ -11,6 +12,7 @@ const ProductList: Array<CountryDeatils> = [
   },
   {
    id: 2,
+   iso: 'us',
    name: 'country2',
    infected: 'country 2 Impact Stats',
    recovered: 'country 2 Impact Stats',
@@ -18,6 +20,7 @@ const ProductList: Array<CountryDeatils> = [
   },
   {
    id: 3,
+   iso: 'us',
    name: 'country3',
    infected: 'country 3 Impact Stats',
    recovered: 'country 3 Impact Stats',
@@ -25,6 +28,7 @@ const ProductList: Array<CountryDeatils> = [
   },
   {
    id: 4,
+   iso: 'us',
    name: 'country4',
    infected: 'country 4 Impact Stats',
    recovered: 'country 4 Impact Stats',
@@ -32,6 +36,7 @@ const ProductList: Array<CountryDeatils> = [
   },
   {
     id: 5,
+    iso: 'us',
     name: 'country4',
     infected: 'country 4 Impact Stats',
     recovered: 'country 4 Impact Stats',
@@ -39,6 +44,7 @@ const ProductList: Array<CountryDeatils> = [
    },
    {
     id: 6,
+    iso: 'us',
     name: 'country4',
     infected: 'country 4 Impact Stats',
     recovered: 'country 4 Impact Stats',
@@ -46,6 +52,7 @@ const ProductList: Array<CountryDeatils> = [
    },
    {
     id: 4,
+    iso: 'us',
     name: 'country4',
     infected: 'country 4 Impact Stats',
     recovered: 'country 4 Impact Stats',
@@ -53,6 +60,7 @@ const ProductList: Array<CountryDeatils> = [
    },
    {
      id: 5,
+     iso: 'us',
      name: 'country4',
      infected: 'country 4 Impact Stats',
      recovered: 'country 4 Impact Stats',
@@ -60,6 +68,7 @@ const ProductList: Array<CountryDeatils> = [
     },
     {
      id: 6,
+     iso: 'us',
      name: 'country4',
      infected: 'country 4 Impact Stats',
      recovered: 'country 4 Impact Stats',
@@ -67,6 +76,7 @@ const ProductList: Array<CountryDeatils> = [
     },
     {
       id: 4,
+      iso: 'us',
       name: 'country4',
       infected: 'country 4 Impact Stats',
       recovered: 'country 4 Impact Stats',
@@ -74,6 +84,7 @@ const ProductList: Array<CountryDeatils> = [
      },
      {
        id: 5,
+       iso: 'us',
        name: 'country4',
        infected: 'country 4 Impact Stats',
        recovered: 'country 4 Impact Stats',
@@ -81,6 +92,7 @@ const ProductList: Array<CountryDeatils> = [
       },
       {
        id: 6,
+       iso: 'us',
        name: 'country4',
        infected: 'country 4 Impact Stats',
        recovered: 'country 4 Impact Stats',
@@ -90,7 +102,7 @@ const ProductList: Array<CountryDeatils> = [
 
 
 @Component({
-  selector: 'app-info-card',
+  selector: 'country-card',
   templateUrl: './info-card.component.html',
   styleUrls: ['./info-card.component.scss']
 })

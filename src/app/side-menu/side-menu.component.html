@@ -1,0 +1,11 @@
+<span class="menu-header">Menu</span>
+<mat-selection-list #iteams [multiple]= "false" class="menu-style">
+    <mat-list-option *ngFor= "let iteam of menuIteams" [value]= "iteam" class="menu-iteam-style" >
+      {{iteam}}
+      <mat-divider></mat-divider>  <br>
+    </mat-list-option>
+
+  </mat-selection-list>
+
+
+  

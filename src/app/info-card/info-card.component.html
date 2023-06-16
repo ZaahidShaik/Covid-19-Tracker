@@ -9,11 +9,11 @@
 
           <mat-card-title-group>
             
-            <mat-card-title class="country-name"> <span class= "fi fi-ca"></span> {{product.name}}</mat-card-title>
+            <mat-card-title class="country-name"> <span class= "fi fi-{{product.iso | lowercase}}"></span> {{product.name}}</mat-card-title>
 
             <!-- <mat-card-subtitle ><mat-chip-option>code: {{product.id}} </mat-chip-option></mat-card-subtitle> -->
             <!-- <mat-chip-option>ISO code: {{product.id}} </mat-chip-option> -->
-            <mat-chip-option> ISO code : US </mat-chip-option>
+            <mat-chip-option> ISO code : {{product.iso | uppercase}} </mat-chip-option>
 
           </mat-card-title-group>
         </mat-card-header>
