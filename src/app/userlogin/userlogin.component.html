@@ -2,16 +2,16 @@
     <mat-card-title class="login-title">Login</mat-card-title> 
     <br>
 <mat-card-content><br>
-<form formGroup="form" (ngSubmit)= "submit()" class="login-container">
+<form [formGroup]= "form"  (ngSubmit)="submit()" class="login-container">
   <p>
     <mat-form-field class="example-full-width">
-      <input type="text" matInput placeholder="Username" formControlName="username">
+      <input type="text"  matInput placeholder="Username" id="username" class="form-control" formControlName="username">
     </mat-form-field>
   </p>
 
   <p>
     <mat-form-field class="example-full-width">
-      <input type="password" matInput placeholder="Password" color="white" formControlName="password">
+      <input type="password" matInput placeholder="Password" color="white" id="password" class="form-control" formControlName= "password">
     </mat-form-field>
   </p>
 
@@ -20,7 +20,7 @@
   </p>
 
   <div class="button">
-    <button type="submit" mat-button class="submit-btn">Submit</button>
+    <button type="submit" mat-button class="submit-btn" >Submit</button>
   </div>
 
 </form>

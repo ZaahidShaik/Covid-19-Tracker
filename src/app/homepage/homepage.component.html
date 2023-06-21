@@ -1,13 +1,41 @@
-<div class="grid-container">
-  <div class="grid-item">
+
+<br>
+<!-- mat-stretch-tabs="false" -->
+<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center">
+  <mat-tab label="All Country" >
+
+    <!-- <button mat-button color="primary" (click)="testData()">Get Data</button>  -->
+
     
-    <side-menu></side-menu>
+    <div class="grid-container">
+      <div class="grid-item">
+        
+        <!-- <side-menu></side-menu> -->
+      
+      </div>
+      <div class="grid-item">
+        <country-card [countryList]='getAllCountryData()' ></country-card>
+    </div>
+    </div>
     
-  </div>
-  <div class="grid-item">
+  </mat-tab>
+  <mat-tab *ngIf="this.BookmarkStatus" label="Bookmarked Country">
+    
+    <div class="grid-container">
+      <div class="grid-item">
+        
+        <!-- <side-menu></side-menu> -->
+      
+      </div>
+      <div class="grid-item">
+        <country-card [countryList]='getBookmarkCountriesData()' ></country-card>
+    </div>
+    </div>
+    
+ 
+  
+  
+  </mat-tab>
+</mat-tab-group>
 
-    <country-card></country-card>
 
-</div>
-
-</div>

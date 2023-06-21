@@ -9,8 +9,16 @@
       <mat-icon>turned_in_not</mat-icon>
     </button> -->
     &nbsp;&nbsp;
-    <button mat-icon-button color="white" routerLink="/user-login">
+    {{userStatus}}
+    <mat-chip *ngIf="this.userStatus" >
+      <img matChipAvatar src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Photo of a Shiba Inu"/>
+      Admin
+    </mat-chip>
+    <button mat-icon-button *ngIf="!this.userStatus" color="white" routerLink="/user-login">
       <mat-icon> person_pin</mat-icon>
+    </button>
+    <button mat-icon-button *ngIf="this.userStatus" color="white" (click)="SignOut()">
+      <mat-icon> exit_to_app</mat-icon>
     </button>
   </mat-toolbar>
 </p>

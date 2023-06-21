@@ -4,36 +4,48 @@
 
 
 <div class="flex-container" >
-    <mat-card *ngFor= "let product of productsList" class="country-card">
+    <mat-card *ngFor= "let country of countryList" class="country-card">
         <mat-card-header>
 
           <mat-card-title-group>
             
-            <mat-card-title class="country-name"> <span class= "fi fi-{{product.iso | lowercase}}"></span> {{product.name}}</mat-card-title>
+            <!-- <mat-card-title class="country-name"> <span class= "fi fi-{{country.iso | lowercase}}"></span> {{country.country}}</mat-card-title> -->
 
-            <!-- <mat-card-subtitle ><mat-chip-option>code: {{product.id}} </mat-chip-option></mat-card-subtitle> -->
-            <!-- <mat-chip-option>ISO code: {{product.id}} </mat-chip-option> -->
-            <mat-chip-option> ISO code : {{product.iso | uppercase}} </mat-chip-option>
+            <mat-card-title class="country-name"> <span class= "fi fi-{{getISO(country.country) | lowercase}}"></span> {{country.country}}</mat-card-title>
+            <!-- <mat-card-title class="country-name">  {{country.country}}</mat-card-title> -->
+
+
+            <!-- <mat-card-subtitle ><mat-chip-option >code: {{country.id}} </mat-chip-option></mat-card-subtitle> -->
+            <!-- <button mat-button color="primary" (click)="getISO_1(country.country)">get ISO</button>  -->
+
+            <!-- <mat-chip> ISO code : {{country.iso | uppercase}} </mat-chip> -->
+            <!-- <mat-card-subtitle > <mat-chip class="iso_chip"> ISO code : {{getISO(country.country)  | uppercase}} </mat-chip></mat-card-subtitle> -->
+
+            <mat-chip> ISO code : {{getISO(country.country)  | uppercase}} </mat-chip>
 
           </mat-card-title-group>
         </mat-card-header>
         <mat-card-content class="country-deatils">
-            <p> INFECTED: {{product.infected}} </p> 
+            <p> INFECTED:&nbsp; {{country.infected === null || country.infected === 'NA' ?  'No Values' : country.infected   }} </p> 
 
             <mat-divider></mat-divider>  <br>
 
-            <p> RECOVERED: {{product.recovered}} </p>
+            <p> RECOVERED:&nbsp; {{country.recovered === null || country.recovered === 'NA' ? 'No Values' : country.recovered }} </p>
 
             <mat-divider></mat-divider>  <br>
 
-            <p> DESEASED: {{product.deseased}} </p>
-            <!-- <span class= "fi fi-ca flag-img"></span> -->
+            <p> DESEASED:&nbsp; {{country.deceased === null || country.deceased === 'NA' ? 'No Values': country.deceased}} </p>
+
+            <!-- {{country | json}} -->
+  
+
 
         </mat-card-content>
 
         <mat-card-actions align="end">
-            <a mat-button href="https://www.google.com/" target="_blank" color="accent"> Source <mat-icon>open_in_new</mat-icon>  </a>
-            <bookmark></bookmark>
+            <a mat-button href={{country.sourceUrl}} target="_blank" color="accent"> Source <mat-icon>open_in_new</mat-icon>  </a>
+
+            <bookmark countryobj={{country.country}}></bookmark>
           </mat-card-actions>
 
       </mat-card>

@@ -24,10 +24,20 @@ import {
   ]
 })
 export class BookmarkBtnComponent {
+
   @Input() public state: boolean = false;
+
+  @Input() public countryobj: any = {};
 
   protected get direction(): 'bookmark_border' | 'bookmark' {
     return this.state ? 'bookmark' : 'bookmark_border';
+  }
+
+  updateState(){
+    this.state = !this.state;
+
+    console.log(this.countryobj);
+    
   }
 
 }

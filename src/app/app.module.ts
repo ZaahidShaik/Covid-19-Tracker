@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
@@ -15,6 +18,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
+import {MatTabsModule} from '@angular/material/tabs';
 
 import { InfoCardComponent } from './info-card/info-card.component';
 import { BookmarkBtnComponent } from './bookmark-btn/bookmark-btn.component';
@@ -35,6 +39,9 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -46,6 +53,7 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
     MatFormFieldModule,
     MatInputModule,
     MatListModule,
+    MatTabsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

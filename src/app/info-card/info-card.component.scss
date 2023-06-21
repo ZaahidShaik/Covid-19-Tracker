@@ -1,4 +1,11 @@
+.country-header{
+  font-family: arial;
+  font-size: 30px;
+  text-align: left;
+  // font-weight: bold;
+  color: white;
 
+}
 
 .flex-container {
     display: flex;
@@ -10,7 +17,7 @@
   }
 
 .country-card {
-    width: 400px;
+    width: 500px;
     margin: 20px;
     margin-left: 10px;
     // background-color: rgb(255, 30, 30);
@@ -25,11 +32,13 @@
     font-size: 30px;
     font-weight: bold;
   }
+  .iso_chip{
+    margin-top: 20px;
+  }
 
   .country-deatils{
     color: white;
-    font-size: 20px;
-    // font-weight: bold;
+    font-size: 16px;
     margin-top: 30px;
     margin-bottom: 20px;
     align-self: center;
@@ -42,13 +51,7 @@
     margin-left: 20px;
   }
 
-  .country-header{
-    font-family: arial;
-    font-size: 30px;
-    text-align: left;
-    // font-weight: bold;
 
-}
 
 .fi{
     // width: 100px;

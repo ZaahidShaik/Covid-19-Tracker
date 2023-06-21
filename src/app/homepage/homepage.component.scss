@@ -1,13 +1,12 @@
 .country-header{
     font-family: arial;
     font-size: 30px;
-    
     font-style: bold;
 }
 
 .grid-container {
     display: grid;
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 5% 95%;
     // background-color: #2196F3;
     padding-top: 30px;
   }
@@ -18,3 +17,7 @@
     // font-size: 30px;
     text-align: start;
   }
+
+
+
+  
