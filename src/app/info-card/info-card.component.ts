@@ -17,14 +17,14 @@ export interface CountryObj {
 export class InfoCardComponent {
 
   // @Input() countryList!: Array<CountryDeatils>;
-  @Input() countryList!: Array<dataType>;
+  @Input() countryList!: Array<CountryDeatils>;
 
    
-  // productsList: Array<CountryDeatils> = ProductList;
+
 
   getISO(searchCountry: string): string{
     let CountryObj: CountryObj[] = []
-    
+
     CountryObj = CountryCodes.filter(country => { return country.name === searchCountry })
     if (CountryObj.length !== 0 ){
       return CountryObj[0].code;
@@ -32,17 +32,14 @@ export class InfoCardComponent {
       return 'us'
     }
     
-
   }
 
   getISO_1(searchCountry: string){
-    // searchCountry = 'Austria';
+
     let CountryObj: any = CountryCodes.filter(country => { return country.name === searchCountry })
 
     console.log(CountryObj);
     
-    // return CountryObj.code;
-
   }
 
 }

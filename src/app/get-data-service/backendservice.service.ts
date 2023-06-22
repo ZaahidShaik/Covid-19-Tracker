@@ -3,6 +3,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { dataType } from '../homepage/homepage.component';
+import { CountryDeatils } from '../info-card/countrystats';
 
 @Injectable({
   providedIn: 'root'
@@ -12,15 +13,9 @@ export class BackendserviceService {
   url4getLatestData = 'https://api.apify.com/v2/key-value-stores/tVaYRsPHLjNdNBu7S/records/LATEST?disableRedirect=true'
 
   constructor(private _http: HttpClient) { }
-
    
-   options = {
-    observe: 'response',
-    responseType: 'json',
-  }
-
-  getDataForAllCountry(): Observable<dataType[]>{
-    return this._http.get<dataType[]>(this.url4getLatestData, {responseType: 'json'}).pipe(
+  getDataForAllCountry(): Observable<CountryDeatils[]>{
+    return this._http.get<CountryDeatils[]>(this.url4getLatestData, {responseType: 'json'}).pipe(
       catchError(this.handleError)
     );;
   }
@@ -46,5 +41,5 @@ export class BackendserviceService {
   }
 
 
-  
+
 }

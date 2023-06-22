@@ -9,16 +9,11 @@
 
           <mat-card-title-group>
             
-            <!-- <mat-card-title class="country-name"> <span class= "fi fi-{{country.iso | lowercase}}"></span> {{country.country}}</mat-card-title> -->
-
             <mat-card-title class="country-name"> <span class= "fi fi-{{getISO(country.country) | lowercase}}"></span> {{country.country}}</mat-card-title>
             <!-- <mat-card-title class="country-name">  {{country.country}}</mat-card-title> -->
 
-
-            <!-- <mat-card-subtitle ><mat-chip-option >code: {{country.id}} </mat-chip-option></mat-card-subtitle> -->
             <!-- <button mat-button color="primary" (click)="getISO_1(country.country)">get ISO</button>  -->
 
-            <!-- <mat-chip> ISO code : {{country.iso | uppercase}} </mat-chip> -->
             <!-- <mat-card-subtitle > <mat-chip class="iso_chip"> ISO code : {{getISO(country.country)  | uppercase}} </mat-chip></mat-card-subtitle> -->
 
             <mat-chip> ISO code : {{getISO(country.country)  | uppercase}} </mat-chip>

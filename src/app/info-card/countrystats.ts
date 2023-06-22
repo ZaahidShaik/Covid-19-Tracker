@@ -1,5 +1,4 @@
 export class CountryDeatils {
-   
     id: number;
     iso: string;
     country: string;
@@ -12,7 +11,8 @@ export class CountryDeatils {
     sourceUrl: string;
     lastUpdatedApify?: number| string;
 
-   constructor (id: number, iso: string, country: string, infected: string, recovered: string, deseased: string, sourceUrl: string ){
+   constructor (id: number, iso: string, country: string, infected: string, 
+                     recovered: string, deseased: string, sourceUrl: string ){
     this.id = id;
     this.iso = iso;
     this.country = country;

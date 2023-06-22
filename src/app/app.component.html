@@ -5,21 +5,31 @@
     <!-- <a class="app-name" routerLink="/" >Covid 19</a> -->
     <span class="example-spacer"></span>
 
-    <!-- <button mat-icon-button color="white" aria-label="Example icon-button with heart icon">
-      <mat-icon>turned_in_not</mat-icon>
-    </button> -->
+
     &nbsp;&nbsp;
     {{userStatus}}
-    <mat-chip *ngIf="this.userStatus" >
+    &nbsp;&nbsp;
+    <!-- User Name Chip -->
+    <mat-chip *ngIf="this.userStatus" color="primary">
       <img matChipAvatar src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Photo of a Shiba Inu"/>
       Admin
     </mat-chip>
-    <button mat-icon-button *ngIf="!this.userStatus" color="white" routerLink="/user-login">
-      <mat-icon> person_pin</mat-icon>
-    </button>
+
+    <!-- Logout Button -->
     <button mat-icon-button *ngIf="this.userStatus" color="white" (click)="SignOut()">
       <mat-icon> exit_to_app</mat-icon>
     </button>
+
+    <!-- User Login -->
+    <button mat-icon-button *ngIf="!this.userStatus" color="white" routerLink="/user-login">
+      <mat-icon> person_pin</mat-icon>
+    </button>
+
+    <!-- User Registration -->
+    <button mat-icon-button *ngIf="!this.userStatus" color="white" routerLink="/user-registration">
+      <mat-icon> person_add</mat-icon>
+    </button>
+
   </mat-toolbar>
 </p>
 

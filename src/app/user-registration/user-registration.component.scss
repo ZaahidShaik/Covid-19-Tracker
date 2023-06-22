@@ -19,7 +19,8 @@
     background-color: #c2185b;
     margin: 10px;
   }
-.login-container{
+
+.signup-container{
     min-width: 150px;
     max-width: 500px;
     width: 100%;
@@ -29,14 +30,18 @@
     background-color: #c2185b;
 }
 
-.login-title{
+.signup-title{
     font-size: 25px;
     font-weight: 500;
 }
 
 .example-full-width {
     width: 100%;
-    color: white;
+    // color: white;
+  }
+
+  mat-form-field.ng-invalid.ng-touched{
+    border: #f1f1f1 5px soild;
   }
 
 
@@ -54,9 +59,5 @@
   }
 
   .submit-btn{
-    font-size: 18px;
-  }
-
-  input.ng-invalid .ng-touched{
-    border: #c2185b 1px soild;
+    font-size: 20px;
   }

@@ -2,18 +2,31 @@
     <mat-card-title class="login-title">Login</mat-card-title> 
     <br>
 <mat-card-content><br>
-<form [formGroup]= "form"  (ngSubmit)="submit()" class="login-container">
+<form [formGroup]= "LoginForm"  (ngSubmit)="submit()" class="login-container">
   <p>
     <mat-form-field class="example-full-width">
-      <input type="text"  matInput placeholder="Username" id="username" class="form-control" formControlName="username">
+      <input type="text"  matInput placeholder="Username" id="username" class="form-control" formControlName="username" required>
     </mat-form-field>
   </p>
+  <div *ngIf= "(username?.invalid && ( username?.dirty || username?.touched) )&& getErros(username) !== null " class="alert alert-danger">
+    <ul style="list-style-type:disc; font-size: 18px; margin-top: 0px;" >
+        <li *ngFor= "let error of getErros(username)">{{error}}</li>
+      </ul>  
+    </div> 
 
   <p>
     <mat-form-field class="example-full-width">
-      <input type="password" matInput placeholder="Password" color="white" id="password" class="form-control" formControlName= "password">
+      <input [type]= "hide ? 'password' : 'text'" matInput placeholder="Password" color="white" id="password" class="form-control" formControlName= "password" required>
+      <button mat-icon-button matSuffix (click)= "hide = !hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
     </mat-form-field>
   </p>
+  <div *ngIf= "(password?.invalid && ( password?.dirty || password?.touched) )&& getErros(password) !== null " class="alert alert-danger">
+    <ul style="list-style-type:disc; font-size: 18px; margin-top: 0px;" >
+        <li *ngFor= "let error of getErros(password)">{{error}}</li>
+      </ul>  
+    </div> 
 
   <p *ngIf= "error" class="error">
     {{ error }}

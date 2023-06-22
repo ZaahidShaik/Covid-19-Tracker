@@ -1,0 +1,100 @@
+<mat-card class="signup-container">
+    <mat-card-title class="signup-title">Registration</mat-card-title> 
+    <br>
+<mat-card-content><br>
+<form [formGroup]= "SignupForm"  (ngSubmit)="submit()" class="signup-container">
+  <!-- <p> -->
+    <mat-form-field class="example-full-width">
+      <input type="text"  matInput placeholder="First Name" id="firstname" class="form-control" formControlName="firstname" required>
+    </mat-form-field>
+         <!-- {{firstname?.errors | json}} -->
+         <!-- {{getErros(firstname?.errors) | json}} -->
+           <div *ngIf= "(firstname?.invalid && ( firstname?.dirty || firstname?.touched) )&& getErros(firstname) !== null " class="alert alert-danger">
+            <ul style="list-style-type:disc; font-size: 18px; margin-top: 0px;" >
+                <li *ngFor= "let error of getErros(firstname)">{{error}}</li>
+              </ul>  
+
+            </div> 
+
+            <!-- <div *ngIf= "getErros(firstname) !== null "> -->
+            <!-- <div *ngFor= "let error of getErros(firstname)">
+                <h4>{{error}}</h4>
+            </div> -->
+
+            <!-- {{firstname?.errors | json}} -->
+         <!-- </div> -->
+
+      
+
+
+  <!-- </p> -->
+
+  <p>
+    <mat-form-field class="example-full-width">
+      <input type="text"  matInput placeholder="Last Name" id="lastname" class="form-control" formControlName="lastname" required>
+    </mat-form-field>
+  </p>
+  <div *ngIf= "(lastname?.invalid && ( lastname?.dirty || lastname?.touched) )&& getErros(lastname) !== null " class="alert alert-danger">
+    <ul style="list-style-type:disc; font-size: 18px; margin-top: 0px;" >
+        <li *ngFor= "let error of getErros(lastname)">{{error}}</li>
+      </ul>  
+    </div> 
+
+
+  <p>
+    <mat-form-field class="example-full-width">
+      <input type="text"  matInput placeholder="Username" id="username" class="form-control" formControlName="username" required>
+    </mat-form-field>
+  </p>
+  <div *ngIf= "(username?.invalid && ( username?.dirty || username?.touched) )&& getErros(username) !== null " class="alert alert-danger">
+    <ul style="list-style-type:disc; font-size: 18px; margin-top: 0px;" >
+        <li *ngFor= "let error of getErros(username)">{{error}}</li>
+      </ul>  
+    </div> 
+
+  <p>
+    <mat-form-field class="example-full-width">
+      <input [type]= "hide ? 'password' : 'text'" matInput placeholder="Password" color="white" id="password" class="form-control" formControlName= "password" required>
+      <button mat-icon-button matSuffix (click)= "hide = !hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+  </p>
+  <div *ngIf= "(password?.invalid && ( password?.dirty || password?.touched) )&& getErros(password) !== null " class="alert alert-danger">
+    <ul style="list-style-type:disc; font-size: 18px; margin-top: 0px;" >
+        <li *ngFor= "let error of getErros(password)">{{error}}</li>
+      </ul>  
+    </div> 
+
+
+
+  <p>
+  <mat-form-field class="example-full-width">
+    <input [type]= "hide ? 'password' : 'text'" matInput placeholder="Confirm Password" color="white" id="confirmpassword" class="form-control" formControlName= "confirmpassword" required>
+    <button mat-icon-button matSuffix (click)= "hide = !hide"  >
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field>
+  </p>
+  <div *ngIf= "(confirmpassword?.invalid && ( confirmpassword?.dirty || confirmpassword?.touched) )&& getErros(confirmpassword) !== null " class="alert alert-danger">
+    <ul style="list-style-type:disc; font-size: 18px; margin-top: 0px;" >
+        <li *ngFor= "let error of getErros(confirmpassword)">{{error}}</li>
+      </ul>  
+    </div> 
+
+  <!-- <p>Value: {{ SignupForm.value | json}}</p> -->
+
+  <!-- <p>Value: {{ SignupForm.valid | json}}</p> -->
+
+  <p *ngIf= "error" class="error">
+    {{ error }}
+  </p>
+
+
+  <div class="button">
+    <button type="submit" mat-button class="submit-btn" >Sign Up</button>
+  </div>
+
+</form>
+</mat-card-content>
+</mat-card>

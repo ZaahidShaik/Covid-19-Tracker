@@ -12,12 +12,17 @@ export class AppComponent implements OnInit {
 
   userStatus: Boolean = false;
 
+  NewUser: Boolean = false;
+
   constructor(private _auth: AuthenticatorService){}
   
   ngOnInit(): void {
     this._auth.curentSignInState.subscribe(status => this.userStatus = status);
   }
-  
+    
+  isExistingUser(){
+    this.NewUser != this.NewUser;
+  }
 
   SignOut(){
     this._auth.getAuthCheck("","", LoginStatus.LoggedOut);

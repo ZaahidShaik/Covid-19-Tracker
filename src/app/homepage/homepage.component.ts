@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import { AuthenticatorService } from '../userlogin/authenticator.service';
 import { CountryDeatils } from '../info-card/countrystats';
@@ -120,44 +120,45 @@ export interface dataType {
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.scss']
 })
-export class HomepageComponent implements OnInit {
+export class HomepageComponent implements OnInit, OnDestroy {
 
   @Input() BookmarkStatus: boolean = false;
   
-   testdata!: dataType[];
+   testdata!: CountryDeatils[];
 
   
   constructor(private _auth: AuthenticatorService,
-               private _callSerivce: BackendserviceService){}
+              private _callSerivce: BackendserviceService){}
+
+
 
   // data:Array<CountryDeatils> = ProductList
   
   ngOnInit(): void {
     this._auth.curentSignInState.subscribe(status => this.BookmarkStatus = status);
-    this._callSerivce.getDataForAllCountry().subscribe( (results: dataType[]) => {
+    this._callSerivce.getDataForAllCountry().subscribe( (results: CountryDeatils[]) => {
       console.log(results); 
       this.testdata = [...results];
     })
   }
 
-  testData(){
-
-    this._callSerivce.getDataForAllCountry().subscribe( (results: dataType[]) => 
-      // console.log(results); 
-      this.testdata = [...results]
-    )
-    
-    console.log(this.testdata);
-  
+  ngOnDestroy(): void {
+    // this._callSerivce.unsubscribe();
+    // this._auth.unsubscribe();
   }
 
-  getAllCountryData(): dataType[] {
+  testData(){
+    this._callSerivce.getDataForAllCountry().subscribe( (results: CountryDeatils[]) => 
+      this.testdata = [...results]
+    )
+    console.log(this.testdata);
+  }
 
+  getAllCountryData(): CountryDeatils[] {
     return this.testdata;
   }
 
-  getBookmarkCountriesData():dataType[] {
-    // return ProductList;
+  getBookmarkCountriesData():CountryDeatils[] {
     return this.testdata;
   }
 

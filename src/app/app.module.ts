@@ -25,6 +25,7 @@ import { BookmarkBtnComponent } from './bookmark-btn/bookmark-btn.component';
 import { UserloginComponent } from './userlogin/userlogin.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
+import { UserRegistrationComponent } from './user-registration/user-registration.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
     BookmarkBtnComponent,
     UserloginComponent,
     PageNotFoundComponent,
-    SideMenuComponent
+    SideMenuComponent,
+    UserRegistrationComponent
   ],
   imports: [
     BrowserModule,
