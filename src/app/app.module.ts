@@ -19,6 +19,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { InfoCardComponent } from './info-card/info-card.component';
 import { BookmarkBtnComponent } from './bookmark-btn/bookmark-btn.component';
@@ -56,6 +57,7 @@ import { UserRegistrationComponent } from './user-registration/user-registration
     MatInputModule,
     MatListModule,
     MatTabsModule,
+    MatTooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

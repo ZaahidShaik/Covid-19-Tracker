@@ -38,9 +38,9 @@
         </mat-card-content>
 
         <mat-card-actions align="end">
-            <a mat-button href={{country.sourceUrl}} target="_blank" color="accent"> Source <mat-icon>open_in_new</mat-icon>  </a>
+            <a mat-button href={{country.sourceUrl}} target="_blank" color="accent" matTooltip="Source link for more info"> Source <mat-icon>open_in_new</mat-icon>  </a>
 
-            <bookmark countryobj={{country.country}}></bookmark>
+            <bookmark countryName={{country.country}}></bookmark>
           </mat-card-actions>
 
       </mat-card>

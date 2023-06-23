@@ -3,6 +3,7 @@ import { ThemePalette } from '@angular/material/core';
 import { AuthenticatorService } from '../userlogin/authenticator.service';
 import { CountryDeatils } from '../info-card/countrystats';
 import { BackendserviceService } from '../get-data-service/backendservice.service';
+import { UserPreferencesService } from '../user preferences/user-preferences.service';
 
 // const ProductList: Array<CountryDeatils> = [
 //   {
@@ -125,10 +126,12 @@ export class HomepageComponent implements OnInit, OnDestroy {
   @Input() BookmarkStatus: boolean = false;
   
    testdata!: CountryDeatils[];
+   BookmarkedList!: String[];
 
   
   constructor(private _auth: AuthenticatorService,
-              private _callSerivce: BackendserviceService){}
+              private _callSerivce: BackendserviceService,
+              private _preference: UserPreferencesService) {}
 
 
 
@@ -140,11 +143,14 @@ export class HomepageComponent implements OnInit, OnDestroy {
       console.log(results); 
       this.testdata = [...results];
     })
+    this._preference.curentTrakingCountries.subscribe(list => this.BookmarkedList = [...list]);
+
   }
 
   ngOnDestroy(): void {
     // this._callSerivce.unsubscribe();
     // this._auth.unsubscribe();
+    // this._preference.unsubscribe();
   }
 
   testData(){
@@ -159,7 +165,24 @@ export class HomepageComponent implements OnInit, OnDestroy {
   }
 
   getBookmarkCountriesData():CountryDeatils[] {
-    return this.testdata;
+    return this.filterTrakingContries();
+  }
+
+  filterTrakingContries():CountryDeatils[]{
+    let FilteredArray: CountryDeatils[] = [];
+
+    if(this.BookmarkedList.length !== 0){
+      this.BookmarkedList.forEach((contryName) => {
+        FilteredArray.push(this.findContryObject(contryName)[0]);
+      } )
+    }
+    console.log(FilteredArray);
+    
+    return FilteredArray;
+  }
+
+  findContryObject(countryName: String): any {
+    return this.testdata.filter(countryObj => { return countryObj.country === countryName})
   }
 
 }

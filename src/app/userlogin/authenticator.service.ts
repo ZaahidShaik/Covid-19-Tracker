@@ -28,6 +28,13 @@ export class AuthenticatorService {
     console.log(`username:${username}, password: ${password}, status: ${status}`);
     let validation = status;
 
+    /**
+     * ToDo: add logic to make http call to seriver and get the user
+     *       credentials verified. 
+     * ToDo Extension: Add token implemenation to have user security.
+     * 
+     **/
+
     if(validation === LoginStatus.LoggedIn){
       console.log("logging In...!");
       

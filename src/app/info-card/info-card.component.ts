@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { CountryDeatils } from './countrystats';
 import { dataType } from '../homepage/homepage.component';
 import { CountryCodes } from '../models/countryIsoCodes';
+import { UserPreferencesService } from '../user preferences/user-preferences.service';
 
 
 export interface CountryObj {
@@ -19,7 +20,8 @@ export class InfoCardComponent {
   // @Input() countryList!: Array<CountryDeatils>;
   @Input() countryList!: Array<CountryDeatils>;
 
-   
+
+  constructor(private _preference: UserPreferencesService){}
 
 
   getISO(searchCountry: string): string{
