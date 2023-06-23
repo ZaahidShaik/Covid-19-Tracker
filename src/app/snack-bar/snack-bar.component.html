@@ -1,0 +1,12 @@
+
+<span class="labelstyle" matSnackBarLabel>
+    {{data.message}}
+</span>
+<span lass="labelstyle" matSnackBarActions>
+
+
+    <button *ngIf="data.action === 'dismiss'" mat-button matSnackBarAction (click)="dismiss()">Dismiss</button>
+    <button *ngIf="data.action === 'DirectToLogin'" mat-button matSnackBarAction (click)="directToLogin()">Login</button>
+</span>
+  
+  

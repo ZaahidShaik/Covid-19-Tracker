@@ -4,6 +4,7 @@ import { AuthenticatorService } from '../userlogin/authenticator.service';
 import { CountryDeatils } from '../info-card/countrystats';
 import { BackendserviceService } from '../get-data-service/backendservice.service';
 import { UserPreferencesService } from '../user preferences/user-preferences.service';
+import { TabStrings } from '../models/models';
 
 // const ProductList: Array<CountryDeatils> = [
 //   {
@@ -127,6 +128,7 @@ export class HomepageComponent implements OnInit, OnDestroy {
   
    testdata!: CountryDeatils[];
    BookmarkedList!: String[];
+   TabStrings!: TabStrings;
 
   
   constructor(private _auth: AuthenticatorService,

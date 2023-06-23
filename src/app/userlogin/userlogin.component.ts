@@ -68,7 +68,10 @@ export class UserloginComponent implements OnInit {
     return  this._valid.getErroStrings(formcontrol);
    }
 
-
+  
+  directToRegistrations(){
+    this.router.navigateByUrl('/user-registration');
+  }
 
 
 

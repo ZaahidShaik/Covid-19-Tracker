@@ -31,9 +31,11 @@
   <p *ngIf= "error" class="error">
     {{ error }}
   </p>
-
-  <div class="button">
-    <button type="submit" mat-button class="submit-btn" >Submit</button>
+  
+  <div class="buttons">
+    <!-- <button type="submit" mat-button class="submit-btn" >Submit</button> -->
+    <button mat-button class="new-user-button" (click)="directToRegistrations()" >New User</button>
+    <button type="submit" mat-button class="submit-button" >Submit</button>
   </div>
 
 </form>

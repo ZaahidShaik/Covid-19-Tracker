@@ -14,3 +14,13 @@ export interface userSignupMetadata {
     password: string,
     confirmpassword: string,
   }
+
+export enum TabStrings {
+    AllCountries,
+    OnlyBookmarks,
+  }
+
+export interface CustomeSnackBarActions {
+    message: string,
+    action: string,
+}

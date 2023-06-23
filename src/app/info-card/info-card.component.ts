@@ -3,12 +3,15 @@ import { CountryDeatils } from './countrystats';
 import { dataType } from '../homepage/homepage.component';
 import { CountryCodes } from '../models/countryIsoCodes';
 import { UserPreferencesService } from '../user preferences/user-preferences.service';
+import { TabStrings } from '../models/models';
 
 
 export interface CountryObj {
   name: string,
   code: string,
 }
+
+
 
 @Component({
   selector: 'country-card',
@@ -19,6 +22,13 @@ export class InfoCardComponent {
 
   // @Input() countryList!: Array<CountryDeatils>;
   @Input() countryList!: Array<CountryDeatils>;
+
+  @Input() isAllCountryTab!: boolean;
+
+  
+
+
+
 
 
   constructor(private _preference: UserPreferencesService){}

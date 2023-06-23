@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
+// Angular Material Imports.
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
@@ -20,13 +20,16 @@ import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
+// Project Components imports.
 import { InfoCardComponent } from './info-card/info-card.component';
 import { BookmarkBtnComponent } from './bookmark-btn/bookmark-btn.component';
 import { UserloginComponent } from './userlogin/userlogin.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import { SnackBarComponent } from './snack-bar/snack-bar.component';
 
 
 @NgModule({
@@ -38,7 +41,8 @@ import { UserRegistrationComponent } from './user-registration/user-registration
     UserloginComponent,
     PageNotFoundComponent,
     SideMenuComponent,
-    UserRegistrationComponent
+    UserRegistrationComponent,
+    SnackBarComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +62,7 @@ import { UserRegistrationComponent } from './user-registration/user-registration
     MatListModule,
     MatTabsModule,
     MatTooltipModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

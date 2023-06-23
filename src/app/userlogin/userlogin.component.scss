@@ -47,13 +47,16 @@
     background-color: #c2185b;
   }
 
-  .button {
+  .buttons {
     display: flex;
-    justify-content: flex-end;
-
+    justify-content: space-between;
   }
 
-  .submit-btn{
+  .new-user-button {
+    font-size: 18px;
+  }
+
+  .submit-button {
     font-size: 18px;
   }
 

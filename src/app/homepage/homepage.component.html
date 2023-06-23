@@ -15,7 +15,7 @@
       
       </div>
       <div class="grid-item">
-        <country-card [countryList]='getAllCountryData()' ></country-card>
+        <country-card [countryList]='getAllCountryData()' [isAllCountryTab]=true></country-card>
     </div>
     </div>
     
@@ -29,7 +29,7 @@
       
       </div>
       <div class="grid-item">
-        <country-card [countryList]='getBookmarkCountriesData()' ></country-card>
+        <country-card [countryList]='getBookmarkCountriesData()' [isAllCountryTab]=false></country-card>
     </div>
     </div>
     
