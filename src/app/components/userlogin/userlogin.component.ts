@@ -1,9 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
-import { AuthenticatorService, LoginStatus } from './authenticator.service';
+
 import { Router } from '@angular/router';
-import { userLoginMetadata } from '../models/models';
-import { InputValidationService } from '../validation service/input-validation.service';
+import { formUserLoginModel, userLoginModel } from '../../models/models';
+import { InputValidationService } from '../../services/validation-service/input-validation.service';
+import { AuthenticatorService, LoginStatus } from '../../services/auth-service/authenticator.service';
+import { UserInfoServiceService } from 'src/app/services/user-info-service/user-info-service.service';
 
 @Component({
   selector: 'user-login',
@@ -11,7 +13,7 @@ import { InputValidationService } from '../validation service/input-validation.s
   styleUrls: ['./userlogin.component.scss']
 })
 export class UserloginComponent implements OnInit {
-   UserData: userLoginMetadata = {
+   UserData: formUserLoginModel = {
     username: '',
     password: '',
    };
@@ -30,9 +32,9 @@ export class UserloginComponent implements OnInit {
   hide: Boolean = true;
 
 
-  constructor(private _auth: AuthenticatorService,
-               private router: Router,
-               private _valid: InputValidationService){}
+  constructor(private _user: UserInfoServiceService,
+              private _router: Router,
+              private _valid: InputValidationService){}
   
 
 
@@ -54,12 +56,11 @@ export class UserloginComponent implements OnInit {
 
   submit() {
     if (this.LoginForm.valid) {
+      
+      //Get userName validated.
+      // let authentication = this._auth.getLoginValidated(this.LoginForm.value);
 
-      this._auth.getAuthCheck(this.LoginForm.value.username, 
-                               this.LoginForm.value.password, LoginStatus.LoggedIn);
-      
-      this.router.navigateByUrl('/app-homepage');
-      
+      this._user.signInUser(this.mapFormModelToLoginModel(this.LoginForm.value));
     }
   }
 
@@ -68,9 +69,22 @@ export class UserloginComponent implements OnInit {
     return  this._valid.getErroStrings(formcontrol);
    }
 
+   mapFormModelToLoginModel(userInput: formUserLoginModel){
+     let login: userLoginModel = {
+      userName: '',
+      password: ''
+     }
+
+     login.userName = userInput.username;
+     login.password = userInput.password;
+     
+     return login;
+   }
+
+
   
   directToRegistrations(){
-    this.router.navigateByUrl('/user-registration');
+    this._router.navigateByUrl('/user-registration');
   }
 
 

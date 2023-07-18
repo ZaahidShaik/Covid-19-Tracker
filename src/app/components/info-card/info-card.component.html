@@ -9,14 +9,15 @@
 
           <mat-card-title-group>
             
-            <mat-card-title class="country-name"> <span class= "fi fi-{{getISO(country.country) | lowercase}}"></span> {{country.country}}</mat-card-title>
+            <!-- <mat-card-title class="country-name"> <span class= "fi fi-{{getISO(country.countryName) | lowercase}}"></span> {{country.countryName}}</mat-card-title> -->
+            <mat-card-title class="country-name"> <span class= "fi fi-{{country.iso | lowercase}}"></span> {{country.countryName}}</mat-card-title>
             <!-- <mat-card-title class="country-name">  {{country.country}}</mat-card-title> -->
 
             <!-- <button mat-button color="primary" (click)="getISO_1(country.country)">get ISO</button>  -->
 
             <!-- <mat-card-subtitle > <mat-chip class="iso_chip"> ISO code : {{getISO(country.country)  | uppercase}} </mat-chip></mat-card-subtitle> -->
 
-            <mat-chip> ISO code : {{getISO(country.country)  | uppercase}} </mat-chip>
+            <mat-chip> ISO code : {{country.iso  | uppercase}} </mat-chip>
 
           </mat-card-title-group>
         </mat-card-header>
@@ -42,7 +43,7 @@
            
             &nbsp;
           <div *ngIf= "isAllCountryTab !== false">
-            <bookmark countryName={{country.country}}></bookmark>
+            <bookmark countryName={{country.countryName}}></bookmark>
           </div>
           </mat-card-actions>
 

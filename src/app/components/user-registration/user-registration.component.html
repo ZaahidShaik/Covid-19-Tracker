@@ -49,6 +49,7 @@
   <div *ngIf= "(username?.invalid && ( username?.dirty || username?.touched) )&& getErros(username) !== null " class="alert alert-danger">
     <ul style="list-style-type:disc; font-size: 18px; margin-top: 0px;" >
         <li *ngFor= "let error of getErros(username)">{{error}}</li>
+        
       </ul>  
     </div> 
 
@@ -89,7 +90,13 @@
   <p *ngIf= "error" class="error">
     {{ error }}
   </p>
-
+   
+  <div *ngIf= "usernameNotLegal == true " class="alert alert-danger">
+    <ul style="list-style-type:disc; font-size: 18px; margin-top: 0px;" >
+        <li>username in use, chose another username.</li>
+      </ul>  
+    </div> 
+  <!-- {{usernameLegal | json}} -->
 
   <div class="button">
     <button type="submit" mat-button class="submit-btn" >Sign Up</button>

@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomepageComponent } from './homepage/homepage.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Angular Material Imports.
@@ -23,13 +23,13 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 // Project Components imports.
-import { InfoCardComponent } from './info-card/info-card.component';
-import { BookmarkBtnComponent } from './bookmark-btn/bookmark-btn.component';
-import { UserloginComponent } from './userlogin/userlogin.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { SideMenuComponent } from './side-menu/side-menu.component';
-import { UserRegistrationComponent } from './user-registration/user-registration.component';
-import { SnackBarComponent } from './snack-bar/snack-bar.component';
+import { InfoCardComponent } from './components/info-card/info-card.component';
+import { BookmarkBtnComponent } from './components/bookmark-btn/bookmark-btn.component';
+import { UserloginComponent } from './components/userlogin/userlogin.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { SideMenuComponent } from './components/side-menu/side-menu.component';
+import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
+import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
 
 
 @NgModule({

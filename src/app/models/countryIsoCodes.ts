@@ -70,7 +70,7 @@ export const CountryCodes = [
     {"name": "Estonia", "code": "EE"},
     {"name": "Eswatini", "code": "SZ"},
     {"name": "Ethiopia", "code": "ET"},
-    {"name": "Falkland Islands [Malvinas]", "code": "FK"},
+    {"name": "Falkland Islands", "code": "FK"},
     {"name": "Faroe Islands", "code": "FO"},
     {"name": "Fiji", "code": "FJ"},
     {"name": "Finland", "code": "FI"},

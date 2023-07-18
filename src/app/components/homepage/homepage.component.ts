@@ -1,10 +1,10 @@
 import { Component, Input, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
-import { AuthenticatorService } from '../userlogin/authenticator.service';
-import { CountryDeatils } from '../info-card/countrystats';
-import { BackendserviceService } from '../get-data-service/backendservice.service';
-import { UserPreferencesService } from '../user preferences/user-preferences.service';
-import { TabStrings } from '../models/models';
+import { CountryDeatils } from '../../models/countrystats';
+import { BackendserviceService } from '../../services/backend-serive/backendservice.service';
+import { UserPreferencesService } from '../../services/user-preferences-service/user-preferences.service';
+import { TabStrings } from '../../models/models';
+import { AuthenticatorService } from '../../services/auth-service/authenticator.service';
 
 // const ProductList: Array<CountryDeatils> = [
 //   {
@@ -128,7 +128,7 @@ export class HomepageComponent implements OnInit, OnDestroy {
   
    testdata!: CountryDeatils[];
    BookmarkedList!: String[];
-   TabStrings!: TabStrings;
+   
 
   
   constructor(private _auth: AuthenticatorService,
@@ -184,7 +184,7 @@ export class HomepageComponent implements OnInit, OnDestroy {
   }
 
   findContryObject(countryName: String): any {
-    return this.testdata.filter(countryObj => { return countryObj.country === countryName})
+    return this.testdata.filter(countryObj => { return countryObj.countryName === countryName})
   }
 
 }

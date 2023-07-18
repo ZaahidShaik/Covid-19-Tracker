@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { CountryDeatils } from './countrystats';
+import { CountryDeatils } from '../../models/countrystats';
 import { dataType } from '../homepage/homepage.component';
-import { CountryCodes } from '../models/countryIsoCodes';
-import { UserPreferencesService } from '../user preferences/user-preferences.service';
-import { TabStrings } from '../models/models';
+import { CountryCodes } from '../../models/countryIsoCodes';
+import { UserPreferencesService } from '../../services/user-preferences-service/user-preferences.service';
+import { TabStrings } from '../../models/models';
 
 
 export interface CountryObj {

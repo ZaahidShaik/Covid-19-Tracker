@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { InfoCardComponent } from './info-card/info-card.component';
-import { UserloginComponent } from './userlogin/userlogin.component';
-import { HomepageComponent } from './homepage/homepage.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import { InfoCardComponent } from './components/info-card/info-card.component';
+import { UserloginComponent } from './components/userlogin/userlogin.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
 
 const routes: Routes = [ 
   { path: 'app-homepage', component: HomepageComponent},

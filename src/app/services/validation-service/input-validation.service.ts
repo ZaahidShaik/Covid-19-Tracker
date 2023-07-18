@@ -1,16 +1,21 @@
 import { Injectable } from '@angular/core';
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { BackendserviceService } from '../backend-serive/backendservice.service';
+import { Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class InputValidationService {
+  
+  validation: boolean = false;
 
-  constructor() { }
+  constructor(private _callSerivce: BackendserviceService,) { }
 
   getErroStrings(formcontrol : ValidationErrors | null | undefined | any): any {
     
     let errorArr: any[] = [];
+
 
      
      const list = formcontrol.errors;
@@ -23,6 +28,10 @@ export class InputValidationService {
 
      return null
 
+  }
+
+  ngOnInit(){
+    this.UsernameInUse();
   }
 
   private getErrorExpression(errorExpression: string){
@@ -40,10 +49,10 @@ export class InputValidationService {
         return 'field mush not have white spaces.';
         break;
       }
-      case 'usernameinuse': {
-        return 'username in use, chose another username.';
-        break;
-      }
+      // case 'usernameinuse': {
+      //   return 'username in use, chose another username.';
+      //   break;
+      // }
       case 'passwordStrength': {
         return 'password not strong, use atlest one uppercase, lowercase and number.';
         break;
@@ -121,12 +130,45 @@ export class InputValidationService {
       if (!value) {
           return null;
       }
-  
-      const usernameValid = value === 'admintest'
-  
+      // const usernameValid = value === 'admintest'
+      // Add another method to validate the UserName in sure to User Backend Service.
+
+      
+      let usernameValid: Boolean;
+      usernameValid = this.checkisValidUser(value)
+      console.log("username: ");
+      console.log(usernameValid);
+      console.log("^^^^");
       return !usernameValid ? {usernameinuse: true}: null;
   
     }}
+     
+    checkisValidUser(value:String): Boolean {
+
+      let Value: any;
+      
+      Value = this._callSerivce.isUsernameValid(value).subscribe( (results: Boolean) => {
+        console.log("result: ");
+        console.log(results); 
+        if(results === true){
+          this.validation = true;
+          console.log("inside True");
+          
+          Value = true;
+        }else {
+          this.validation = false
+          console.log("inside False");
+          Value = false;
+        }
+      })
+      console.log("Value | ");
+      
+      console.log(this.validation);
+      
+
+      return this.validation
+
+    }
 
 
 

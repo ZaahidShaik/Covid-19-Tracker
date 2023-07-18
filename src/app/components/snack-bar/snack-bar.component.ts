@@ -1,6 +1,6 @@
 import { Component, Inject, Input, inject } from '@angular/core';
 import { MAT_SNACK_BAR_DATA, MatSnackBarRef } from '@angular/material/snack-bar';
-import { CustomeSnackBarActions } from '../models/models';
+import { CustomeSnackBarActions } from '../../models/models';
 import { Router } from '@angular/router';
 
 @Component({

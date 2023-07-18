@@ -6,10 +6,10 @@ import {
   animate,
   transition
 } from '@angular/animations';
-import { UserPreferencesService } from '../user preferences/user-preferences.service';
+import { UserPreferencesService } from '../../services/user-preferences-service/user-preferences.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackBarComponent } from '../snack-bar/snack-bar.component';
-import { AuthenticatorService } from '../userlogin/authenticator.service';
+import { AuthenticatorService } from '../../services/auth-service/authenticator.service';
 
 @Component({
   selector: 'bookmark',

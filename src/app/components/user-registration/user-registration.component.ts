@@ -1,10 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
-import { AuthenticatorService, LoginStatus } from '../userlogin/authenticator.service';
+
 import { Router } from '@angular/router';
-import { userSignupMetadata } from '../models/models';
+import { formUserRegistrationModel, userRegistrationModel } from '../../models/models';
 import { Expression } from '@angular/compiler';
-import { InputValidationService } from '../validation service/input-validation.service';
+import { InputValidationService } from '../../services/validation-service/input-validation.service';
+import { AuthenticatorService, LoginStatus } from '../../services/auth-service/authenticator.service';
+import { UserInfoServiceService } from 'src/app/services/user-info-service/user-info-service.service';
 
 
 
@@ -16,13 +18,13 @@ import { InputValidationService } from '../validation service/input-validation.s
 export class UserRegistrationComponent implements OnInit {
 
 
-  signUpData: userSignupMetadata = {
+  signUpData: formUserRegistrationModel = {
     firstname: '',
     lastname: '',
     username: '',
     password: '',
-    confirmpassword: '',
-   };
+    confirmpassword: ''
+  };
 
    paswordValidations = [
     Validators.required,
@@ -32,6 +34,8 @@ export class UserRegistrationComponent implements OnInit {
   SignupForm!: FormGroup;
   hide = true;
   errorList: any[] | undefined;
+
+  usernameNotLegal: Boolean | undefined;
  
   @Input() error: string | null = null;
    
@@ -40,9 +44,10 @@ export class UserRegistrationComponent implements OnInit {
 
  constructor(private _auth: AuthenticatorService,
               private router: Router,
-              private _valid: InputValidationService){}
+              private _valid: InputValidationService,
+              private _userInfo: UserInfoServiceService){}
  
-
+  
   ngOnInit(): void {
     // Sign up form Schema.
     this.SignupForm = new FormGroup({
@@ -59,7 +64,7 @@ export class UserRegistrationComponent implements OnInit {
       username: new FormControl(this.signUpData.username, [ Validators.required, 
                                                             Validators.minLength(6),
                                                             this._valid.noWhiteSpace(),
-                                                            this._valid.UsernameInUse()
+                                                            // this._valid.UsernameInUse()
                                                           ]),
       password: new FormControl(this.signUpData.password, [ Validators.required, 
                                                             this._valid.noWhiteSpace(),
@@ -70,6 +75,9 @@ export class UserRegistrationComponent implements OnInit {
                                                                    this._valid.unvalidPassword()
                                                                  ]),
     }, this._valid.matchingPasswords());
+    // console.log(this.SignupForm.value.username);
+    
+    // this.usernameLegal = this._valid.checkisValid(this.SignupForm.value.username);
   }
 
   get firstname() { return this.SignupForm.get('firstname'); }
@@ -82,26 +90,83 @@ export class UserRegistrationComponent implements OnInit {
 
   get confirmpassword() { return this.SignupForm.get('confirmpassword'); }
 
-
+   
 
 
   submit() {
+    this.usernameNotLegal = undefined;
 
     console.log(this.SignupForm.value);
-    
-    // if (this.SignupForm.valid) {
+    console.log("Validation: ");
 
-      this._auth.getAuthCheck(this.SignupForm.value.username, 
-                               this.SignupForm.value.password, LoginStatus.LoggedIn);
+    
+    if (this.SignupForm.valid && this.SignupForm.value.password == this.SignupForm.value.confirmpassword) {
       
-      this.router.navigateByUrl('/app-homepage');
+      //Get the user Authenticated.
+      let authentication = this._auth.getRegistrationValidated(this.SignupForm.value);
+
+      console.log(authentication);
       
-    // }
+
+      switch(authentication){
+        case LoginStatus.Register:{
+          console.log("Registered...!");
+
+          //Save User registration data to DB
+          this._userInfo.registerUserData(this.mapFormControlToRegisterObject(this.SignupForm.value));
+          
+          //TO-DO: Add logggic to handle Error, In-case the Login doesn't gets saved.
+
+          // Navigate to Login
+          this.router.navigateByUrl('user-login')
+          break;
+        }
+
+        case LoginStatus.CannotRegister:{
+          console.log("CannotRegister...!"); 
+          break;
+        }
+        case LoginStatus.UserNameInUse:{
+          console.log("Failed: Username is in use, Enter different Username..!");
+          this.usernameNotLegal = true; 
+          break;
+        }
+        case LoginStatus.NotRegistered:{
+          break;
+        }
+        default: { 
+          console.log("Failed: Registration Failed, Try again..!");
+          
+          break; 
+       } 
+      }
+      
+
+      // this.router.navigateByUrl('/app-homepage');
+      
+    }
   }
 
 
   getErros(formcontrol : ValidationErrors | null | undefined | any): any {
    return  this._valid.getErroStrings(formcontrol);
+  }
+
+  mapFormControlToRegisterObject( signInformData :formUserRegistrationModel){
+    let user: userRegistrationModel = {
+      firstName: '',
+      lastName: '',
+      userName: '',
+      password: ''
+    }
+
+    user.firstName = signInformData.firstname;
+    user.lastName = signInformData.lastname;
+    user.userName = signInformData.username;
+    user.password = signInformData.password;
+
+    return user;
+     
   }
 
 

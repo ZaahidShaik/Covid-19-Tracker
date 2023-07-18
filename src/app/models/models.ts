@@ -2,17 +2,35 @@ export interface Tracking {
     country: string
 }
 
-export interface userLoginMetadata {
-    username: string;
+export interface userLoginModel {
+    userName: string;
     password: string;
+}
+
+export interface formUserLoginModel{
+  username: string;
+  password: string; 
+}
+
+export enum loginStatusEum{
+  ACTIVE,
+  IN_ACTIVE,
+}
+
+export interface userRegistrationModel {
+    firstName: String,
+    lastName: String,
+    userName: String,
+    password: String,
+    status?: loginStatusEum,
   }
 
-export interface userSignupMetadata {
-    firstname: string,
-    lastname: string,
-    username: string,
-    password: string,
-    confirmpassword: string,
+export interface formUserRegistrationModel {
+    firstname: String,
+    lastname: String,
+    username: String,
+    password: String,
+    confirmpassword: String
   }
 
 export enum TabStrings {
